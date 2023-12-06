@@ -2,36 +2,43 @@
 
 require __DIR__ . "/../vendor/autoload.php";
 
+session_start();
 
-//use Dotenv\Dotenv;
+use Dotenv\Dotenv;
 
-//$dotenv = Dotenv::createImmutable(__DIR__);
-//$dotenv->load();
+$dotenv = Dotenv::createImmutable(__DIR__ . "/..");
+$dotenv->load();
 
-$dbHost = "localhost:8000"; // Adresse de l'hôte de la base de données
-$dbName = "blog"; // Nom de la base de données
-$dbUser = "aranhiblot"; // Nom d'utilisateur MySQL
-$dbPass = "Bm1vx3;I"; // Mot de passe MySQL
+$url = $_SERVER['REQUEST_URI'];
+$url = explode("blog", $url)[1];
+$url = explode("?", $url)[0];
+$url = str_replace("/public", "", $url);
 
-try {
-    $pdo = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
-    
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    $query = "SELECT * FROM votre_table";
-    $statement = $pdo->query($query);
-    
-    // Récupération des résultats
-    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-    
-    // Exemple d'affichage des résultats
-    foreach ($results as $row) {
-        echo "ID : " . $row['id'] . ", Nom : " . $row['nom'] . "<br>";
+switch($url)
+{
+    case '/articles' :
+        include '../src/controllers/articlesController.php';
+        break;
+
+    case '/articles/create' : 
+        include '../src/controllers/articlesCreateController.php';
+        break;
+
+    case '/articles/edit' : 
+        include '../src/controllers/articlesEditController.php';
+        break;
+
+    case '/articles/delete' : 
+        include '../src/controllers/articlesDeleteController.php';
+        break;
+
+    case '/articles/update' :
+        include '../src/controllers/articlesUpdateController.php';
+        break;
+
+    default : 
+        include '../src/controllers/articlesController.php';
+        break;
     }
-} catch (PDOException $e) {
-    // En cas d'échec de connexion à la base de données, afficher l'erreur
-    echo "Erreur de connexion : " . $e->getMessage();
-}
-
 
 
