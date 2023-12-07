@@ -14,12 +14,12 @@
     <form action="update" method="post">
         <div>
             <label for="title">Title : </label>
-            <input type="text" name="title" value=<?=isset($_POST["title"]) ? $_POST["title"] : $article["title"]?>>
+            <input type="text" name="title" value=<?=isset($_SESSION["old_input"]["title"]) ? $_SESSION["old_input"]["title"] : $article["title"]?>>
         </div>
 
         <div>
             <label for="body">Body : </label>
-            <textarea name="body"><?=isset($_POST["body"]) ? $_POST["body"] : $article["body"]?></textarea>
+            <textarea name="body"><?=isset($_SESSION["old_input"]["body"]) ? $_SESSION["old_input"]["body"] : $article["body"]?></textarea>
         </div>
 
         <input type="hidden" name="id" value="<?=$_GET["id"]?>">

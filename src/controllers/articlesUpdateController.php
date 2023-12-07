@@ -6,7 +6,7 @@ use Respect\Validation\Validator as v;
 $isValidTitle = v::notEmpty()->validate($_POST["title"]);
 $isValidBody = v::notEmpty()->validate($_POST["body"]);
 
-
+$_SESSION["old_input"] = $_POST;
 
 if ($isValidTitle && $isValidBody)
 {
