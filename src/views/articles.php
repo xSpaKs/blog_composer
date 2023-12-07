@@ -37,6 +37,8 @@
                 <p><strong>Date : </strong><?=ucfirst($carbon->parse($article["updated_at"])->locale('fr_FR')->diffForHumans()) ?></p>
                 <p><strong>Title : </strong> <?=$parsedown->text($article["title"])?></p>
                 <p> <strong>Body : </strong><?=$parsedown->text($article["body"])?></p>
+                <a href="/blog/articles/edit?id=<?= $article["id"] ?>">Edit this article</a>
+                <a href="/blog/articles/delete?id=<?= $article["id"] ?>">Delete this article</a>
             </div>
         <?php }
         else if (count($articles) == 0) { ?>
