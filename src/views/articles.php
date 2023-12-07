@@ -34,9 +34,9 @@
         { ?>
             <div>
                 <h3>Article <?=$article["id"]?></h3>
-                <p>Date : <?=ucfirst($carbon->parse($article["updated_at"])->locale('fr_FR')->diffForHumans()) ?></p>
-                <p>Title : <?=$parsedown->text($article["title"])?></p>
-                <p>Body : <?=$parsedown->text($article["body"])?></p>
+                <p><strong>Date : </strong><?=ucfirst($carbon->parse($article["updated_at"])->locale('fr_FR')->diffForHumans()) ?></p>
+                <p><strong>Title : </strong> <?=$parsedown->text($article["title"])?></p>
+                <p> <strong>Body : </strong><?=$parsedown->text($article["body"])?></p>
             </div>
         <?php }
         else if (count($articles) == 0) { ?>
@@ -50,11 +50,11 @@
                 <div>
                     <p>-----------------------------------------------</p>
                     <h3>Article <?=$articles[$i]["id"]?></h3>
-                    <p>Date : <?=
+                    <p><strong>Date : </strong><?=
                     ucfirst($carbon->parse($articles[$i]["updated_at"])->locale('fr_FR')->isoFormat('LLLL')) ?>
                     </p>
-                    <p>Title : <?=$parsedown->text($articles[$i]["title"])?></p>
-                    <p>Body : <?=$parsedown->text($articles[$i]["body"])?></p>
+                    <p><strong>Title : </strong><?=$parsedown->text($articles[$i]["title"])?></p>
+                    <p><strong>Body : </strong><?=$parsedown->text($articles[$i]["body"])?></p>
                     <a href="/blog/articles/edit?id=<?= $articles[$i]["id"] ?>">Edit this article</a>
                     <a href="/blog/articles/delete?id=<?= $articles[$i]["id"] ?>">Delete this article</a>
                 </div>

@@ -3,6 +3,8 @@
 require __DIR__ . "/../models/Article.php";
 use Carbon\Carbon;
 
+$_SESSION["old_input"] = [];
+
 if (isset($_GET["id"]))
 {
     if (ctype_digit($_GET["id"]) != "integer") {

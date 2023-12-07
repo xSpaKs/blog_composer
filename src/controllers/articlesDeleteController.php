@@ -2,6 +2,8 @@
 
 require __DIR__ . "/../models/Article.php";
 
+$_SESSION["old_input"] = [];
+
 if (isset($_GET["id"]))
 {
     if (ctype_digit($_GET["id"]) != "integer") {
