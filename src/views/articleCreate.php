@@ -8,13 +8,15 @@
 </head>
 <body>
     <h1>Create an article</h1>   
+    <?php
+    ?>
     <?=isset($_SESSION["message"]) ? $_SESSION["message"] : ""; $_SESSION["message"] = ""?> 
     <a href="/blog/articles">List of articles</a>
     
     <form action="" method="post">
         <div>
             <label for="title">Title : </label>
-            <input type="textarea" name="title" value=<?=isset($_POST["title"]) ? $_POST["title"] : ""?>>
+            <textarea name="title"><?=isset($_POST["title"]) ? $_POST["title"] : ""?></textarea>
         </div>
 
         <div>

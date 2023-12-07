@@ -33,7 +33,7 @@
     
         { ?>
             <div>
-                <p>Article <?=$article["id"]?></p>
+                <h3>Article <?=$article["id"]?></h3>
                 <p>Date : <?=ucfirst($carbon->parse($article["updated_at"])->locale('fr_FR')->diffForHumans()) ?></p>
                 <p>Title : <?=$parsedown->text($article["title"])?></p>
                 <p>Body : <?=$parsedown->text($article["body"])?></p>
@@ -49,7 +49,7 @@
             { ?>
                 <div>
                     <p>-----------------------------------------------</p>
-                    <p>Article <?=$articles[$i]["id"]?></p>
+                    <h3>Article <?=$articles[$i]["id"]?></h3>
                     <p>Date : <?=
                     ucfirst($carbon->parse($articles[$i]["updated_at"])->locale('fr_FR')->isoFormat('LLLL')) ?>
                     </p>

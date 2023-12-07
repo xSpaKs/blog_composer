@@ -14,7 +14,7 @@
     <form action="update" method="post">
         <div>
             <label for="title">Title : </label>
-            <input type="text" name="title" value=<?=isset($_SESSION["old_input"]["title"]) ? $_SESSION["old_input"]["title"] : $article["title"]?>>
+            <textarea name="title"><?=isset($_SESSION["old_input"]["title"]) ? $_SESSION["old_input"]["title"] : $article["title"]?></textarea>
         </div>
 
         <div>
